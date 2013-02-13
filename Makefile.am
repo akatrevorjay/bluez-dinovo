@@ -32,7 +32,7 @@ AM_LDFLAGS = $(MISC_LDFLAGS)
 
 if DATAFILES
 dbusdir = @DBUS_CONFDIR@/dbus-1/system.d
-dbus_DATA = src/bluetooth.conf
+dbus_DATA = src/bluetooth.conf input/dinovo.conf
 
 confdir = $(sysconfdir)/bluetooth
 conf_DATA =
@@ -118,6 +118,16 @@ plugins_external_dummy_la_SOURCES = plugins/external-dummy.c
 plugins_external_dummy_la_LDFLAGS = $(AM_LDFLAGS) -module -avoid-version \
 				    -no-undefined
 plugins_external_dummy_la_CFLAGS = $(AM_CFLAGS) -fvisibility=hidden
+endif
+
+if INPUTPLUGIN
+builtin_modules += input
+builtin_sources += input/main.c \
+			input/manager.h input/manager.c \
+			input/server.h input/server.c \
+			input/device.h input/device.c \
+			input/fakehid.c input/fakehid.h \
+			input/logitech_mediapad.c
 endif
 
 libexec_PROGRAMS += src/bluetoothd

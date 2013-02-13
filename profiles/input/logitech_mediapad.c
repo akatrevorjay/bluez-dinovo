@@ -41,9 +41,9 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 
-#include "fakehid.h"
+/*#include "fakehid.h"*/
 #include "uinput.h"
-#include "logging.h"
+/*#include "logging.h"*/
 
 /* Screen modes */
 #define LCD_SCREEN_MODE_TEXT   0x00
